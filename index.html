@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="M3: 3D-Spatial MultiModel Memory">
+  <meta name="keywords" content="Foundation Model, Gaussian Splatting, Large Multimodal Model, Robotics">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    M3: 3D-Spatial Multimodel Memory
+  </title>
+
+  <!-- favicon -->
+  <link rel="icon" type="image/svg+xml" href="static/images/ucsd-seal.svg">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://kit.fontawesome.com/19914a84eb.js" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+<section class="hero is-link is-fullheight video" style="overflow: hidden; position:relative;">
+  <div class="hero-video" style="height: 100%; width: 177.77777778vh; min-width: 100%;min-height: 56.25vw;">
+    <video playsinline autoplay muted loop>
+      <source src=" ./static/videos/m3-teaser.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-video is-hidden-tablet is-inline-block-mobile"
+    style="height: 154.28571428vw; width: 100%; min-width:64.81481481vh;min-height:100%;">
+    <video playsinline autoplay muted loop>
+      <source src=" ./static/videos/teaser-mobile-small.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="overlay"></div>
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head is-hidden-mobile">
+    <!-- Removed the navbar with buttons that were originally here -->
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 12rem; ">
+        M3
+      </h1>
+      <h1 class="subtitle is-1 publication-title is-size-4-mobile" style="font-size: 4rem; line-height: 1.2; margin-bottom: 2rem;">
+        3D-Spatial MultiModel Memory
+      </h1>
+      <div style="margin-bottom: 1.5em;">
+        <div class="column has-text-centered">
+          <div class="publication-links">
+            <!-- PDF Link. -->
+            <span class="link-block">
+              <a href="https://openreview.net/pdf?id=XYdstv3ySl" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <img src="./static/images/pdf.svg" alt="PDF" />
+                </span>
+                <span>Paper</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <img src="./static/images/arxiv.svg" alt="ArXiv" />
+                </span>
+                <span>arXiv</span>
+              </a>
+            </span>
+            <!-- Video Link. -->
+            <span class="link-block">
+              <a href="https://youtu.be/woez5qA0J2Y" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <img src="./static/images/youtube.svg" alt="Youtube" />
+                </span>
+                <span>Video</span>
+              </a>
+            </span>
+            <!-- Code Link. -->
+            <span class="link-block">
+              <a href="https://github.com/MaureenZOU/m3-gaussian"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+            </span>
+          </div>
+        </div>
+        <h2 class="is-2 is-italic is-size-4-mobile" style="font-size: 2rem; opacity: 90%; font-weight: 500; margin-bottom: 1.5em; letter-spacing: 0.02em;">
+          ICLR 2025
+        </h2>
+        <h2 class="is-2 is-size-4-mobile" style="font-size: 1.5rem; opacity: 95%; line-height: 1.6; margin-bottom: 0.5em;">
+          <a href="https://maureenzou.github.io/">Xueyan Zou</a>, <a href="https://yuchen-song.github.io/">Yuchen Song</a>, <a href="https://rogerqi.github.io/">Ri-Zhao Qiu</a>, <a href="https://xuanbinpeng.github.io/">Xuanbin Peng</a>,<br> <a href="https://jianglongye.com/">Jianglong Ye</a>, <a href="https://sifeiliu.net/">Sifei Liu</a>, <a href="https://xiaolonw.github.io/">Xiaolong Wang</a>
+        </h2>
+        <h2 class="is-2 is-italic is-size-4-mobile" style="font-size: 1.5rem; opacity: 90%; font-weight: 600; letter-spacing: 0.01em;">
+          <b>UC San Diego, NVIDIA</b>
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot is-hidden-mobile">
+    <div class="container is-fluid is-paddingless-horizontal">
+      <div class="columns is-vcentered">
+        <div class="column is-12">
+          <nav class="tabs is-boxed is-fullwidth is-size-5">
+            <ul class="is-flex" style="width: 100%;">
+              <li style="flex: 1; text-align: center;"><a href="#sec1">Technical Video</a></li>
+              <li style="flex: 1; text-align: center;"><a href="#sec2">Interactive Demo</a></li>
+              <li style="flex: 1; text-align: center;"><a href="#sec3">Robot Deployment</a></li>
+              <li style="flex: 1; text-align: center;"><a href="#sec4">Memory to Rendering</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  .highlight-orange {
+    color: #ff6600;
+    font-weight: bold;
+  }
+  .highlight-blue {
+    color: #007bff;
+    font-weight: bold;
+  }
+  .highlight-green {
+    color: #28a745;
+    font-weight: bold;
+  }
+</style>
+
+
+<section class="section is-medium" id="sec0">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths has-text-justified is-hidden-mobile">
+
+        <h2 class="subtitle">
+          <p><strong>M3</strong> is a framework for rendering static 3D scenes with RGB and 
+            <span class="highlight-blue">foundation model embeddings</span>, enabling rich spatial and semantic understanding.
+          </p>
+          
+          <p><strong>Precise Feature Reconstruction:</strong> M3 uses 
+            <span class="highlight-orange">Gaussian Memory Attention</span> to reconstruct spatial memory directly in the 
+            <span class="highlight-blue">foundation model's embedding space</span>, avoiding distillation and preserving the source model's 
+            <span class="highlight-blue">embedding space</span>.
+          </p>          
+          
+          <p><strong>Efficient Feature Representation:</strong> M3 reduces 
+            <span class="highlight-blue">embedding</span> dimensions from 64 to 16–32 per 
+            <span class="highlight-orange">Gaussian primitive</span>, achieving equal or better performance with 50% fewer dimensions for improved efficiency.
+          </p>
+        </h2>
+        
+        <h2 class="subtitle">
+          <strong>The best part?</strong>
+          Fewer parameters, original 
+          <span class="highlight-blue">embedding space</span>!
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-small" id="video" style="margin-top: -3rem;" id="sec1">
+  <div class="container is-max-desktop">
+    <h2 class="title is-1 has-text-centered is-size-4-mobile">Technical Summary Video</h2>
+    <iframe width="100%" style="aspect-ratio: 16 / 9;" src="
+      https://www.youtube.com/embed/woez5qA0J2Y?si=jdgD9APtKTH6Q4Yh" title="M3 Technical Summary Video"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</section>
+
+<section class="section" id="video" id="sec2">
+  <div class="container is-max-desktop">
+    <h2 class="title is-1 has-text-centered is-size-4-mobile">Interactive Demo</h2>
+    <div class="content">
+      <p>
+        We propose a new visualization tool that support streaming of 3D scene reconstruction for RGB, and Foundation Model embeddings with GPU as backend.
+      </p>
+    </div>
+    <iframe width="100%" style="aspect-ratio: 16 / 9;" src="
+      https://www.youtube.com/embed/l3xJnDR9KEg?si=SA9Sk4PBSWOST5Ga" title="M3 Demo Video"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</section>
+
+<section class="section" id="video" id="sec3">
+  <div class="container is-max-desktop">
+    <h2 class="title is-1 has-text-centered is-size-4-mobile">Real Robot Deployment</h2>
+    <div class="content">
+      <p>
+        We deploy M3 on tabletop manipulation tasks and show demo videos, noted that M3 is currently only used for localization and mapping.
+      </p>
+    </div>
+    <iframe width="100%" style="aspect-ratio: 16 / 9;" src="
+      https://www.youtube.com/embed/CKUpxnBK1MY?si=qMkbrDLq5oH81lWi" title="M3 Robot Deployment Video"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</section>
+
+<section class="section is-small" id="sec4">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+
+        <h2 class="title is-1 has-text-centered is-size-4-mobile">Memory to Rendering</h2>
+        <div class="content">
+          <p>
+            In the visualization below, we have shown the raw feature manifold (blue points) and the memory extracted by M3 (red points), with the proposed M3 method, we apply gaussian memory attention from principle scene component to the rendered high resolution feature map (third row).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<video autoplay muted loop playsinline width="100%">
+  <source src="./static/videos/m3-homepage2.mp4" type="video/mp4">
+</video>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template modified from <a href="https://nerfies.github.io/">NeRFies</a> and <a
+              href="https://www.cs.columbia.edu/~huy/scalingup/">Scaling Up Distilling Down</a> and <a
+              href="https://umi-on-legs.github.io/">Umi on Legs</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
